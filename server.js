@@ -19,6 +19,9 @@ const scope = process.env.SCOPE;
 // Store access token and tenant ID in memory for simplicity; use a secure store for production
 let accessToken = '';
 let xeroTenantId = '';
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 app.get('/auth', (req, res) => {
   const authUrl = `https://login.xero.com/identity/connect/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}`;
